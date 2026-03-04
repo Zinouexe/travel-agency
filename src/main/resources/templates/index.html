@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Atlas Voyage · Operations Console</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark border-bottom border-secondary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">ATLAS&nbsp;VOYAGE</a>
+        <div class="d-none d-md-flex ms-4 gap-3">
+            <a href="/customers" class="subnav-link text-decoration-none">Customers</a>
+            <a href="/services" class="subnav-link text-decoration-none">Services</a>
+            <a href="/trips" class="subnav-link text-decoration-none">Trips</a>
+        </div>
+        <div class="ms-auto">
+            <span th:if="${dbStatus} != null" class="badge"
+                  th:text="${dbStatus.startsWith('UP') ? 'DB: ' + dbName : 'DB ERROR'}"
+                  th:classappend="${dbStatus.startsWith('UP')} ? ' badge-db-up' : ' badge-db-down'"></span>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-5">
+    <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+            <div class="hero-card p-4 p-md-5">
+                <div class="mb-3">
+                    <span class="hero-chip">
+                        <span class="badge rounded-pill bg-primary-subtle text-primary-emphasis border border-primary-subtle me-1"></span>
+                        Travel operations · Live data
+                    </span>
+                </div>
+                <h1 class="hero-title fw-bold mb-3">
+                    Manage every <span class="hero-highlight">itinerary</span> from a single cockpit.
+                </h1>
+                <p class="mb-4 text-secondary">
+                    This console is wired directly to your Oracle object‑oriented schema:
+                    customers, services, and trips are real objects stored in the database.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="/trips" class="btn btn-info text-dark cta-button">
+                        View active trips
+                    </a>
+                    <a href="/services" class="btn btn-outline-light cta-secondary">
+                        Explore service catalog
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="row g-3">
+                <div class="col-12">
+                    <div class="metric-card p-3">
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <span class="metric-kicker">Customers</span>
+                            <span class="metric-pill">
+                                <span class="rounded-circle bg-info-subtle" style="width:8px;height:8px;"></span>
+                                object table
+                            </span>
+                        </div>
+                        <div class="metric-number" th:text="${customersCount != null ? customersCount : 0}">0</div>
+                        <div class="text-muted small">Profiles stored as <strong>Customer_t</strong> objects.</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="metric-card p-3 h-100">
+                        <div class="metric-kicker mb-1">Services</div>
+                        <div class="metric-number" th:text="${servicesCount != null ? servicesCount : 0}">0</div>
+                        <div class="text-muted small">Polymorphic <strong>Service_t</strong> hierarchy.</div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="metric-card p-3 h-100">
+                        <div class="metric-kicker mb-1">Trips</div>
+                        <div class="metric-number" th:text="${tripsCount != null ? tripsCount : 0}">0</div>
+                        <div class="text-muted small">Linked to customers and service bundles.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
