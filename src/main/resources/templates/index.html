@@ -32,52 +32,87 @@
     </nav>
 
     <main class="container py-5">
-        <div class="row g-4 align-items-center">
-            <div class="col-lg-7">
-                <div class="hero-card p-4 p-md-5">
+        <div class="row g-5 align-items-center">
 
-                    <h1 class="hero-title fw-bold mb-3 mt-4">
+            <!-- Left Side: Typography & CTAs -->
+            <div class="col-lg-6">
+                <div class="pe-lg-4">
+                    <span
+                        class="badge rounded-pill bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 mb-3 fw-semibold tracking-wide">
+                        Tailor-Made Journeys
+                    </span>
+                    <h1 class="hero-title fw-bold mb-4">
                         Manage every <span class="hero-highlight">itinerary</span> from a single cockpit.
                     </h1>
-                    <p class="mb-4 text-muted fs-5 lh-lg">
-                        At atlas Voyage, we believe the finest travel experiences are those designed exclusively for
+                    <p class="mb-5 text-muted fs-5 lh-lg">
+                        At Atlas Voyage, we believe the finest travel experiences are those designed exclusively for
                         you. The tours featured here are not fixed packages but inspirations—showcasing the incredible
                         diversity of Algeria. Each element, from the destinations and activities to the accommodations
                         and pace, can be tailored to your dreams.
                     </p>
-                    <div class="d-flex flex-wrap gap-3">
+                    <div class="d-flex flex-wrap gap-3 mb-5 mb-lg-0">
                         <a href="/trips" class="btn cta-button">
                             View active trips
                         </a>
                         <a href="/services" class="btn cta-secondary">
-                            Explore service catalog
+                            Explore catalog
                         </a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-lg-5">
+            <!-- Right Side: Visuals & Metrics -->
+            <div class="col-lg-6">
+                <div class="hero-image-wrapper mb-4 position-relative">
+                    <div class="hero-image-backdrop"></div>
+                    <img src="https://images.unsplash.com/photo-1539650116574-8efeb43e2750?q=80&w=2670&auto=format&fit=crop"
+                        alt="Wonders of Algeria" class="img-fluid hero-image rounded-4 shadow-lg position-relative z-1"
+                        style="object-fit: cover; height: 350px; width: 100%;">
+
+                    <!-- Floating Metric Overlay -->
+                    <div class="position-absolute bottom-0 start-0 translate-middle-y ms-minus-3 z-2 d-none d-md-block">
+                        <div
+                            class="floating-badge bg-white p-3 rounded-4 shadow-lg border border-light d-flex align-items-center gap-3">
+                            <div class="bg-success-subtle p-2 rounded-circle">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 10 0 1 1-5.93-9.14"></path>
+                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="fw-bold fs-5 text-dark">Live Systems</div>
+                                <div class="text-muted small">Oracle Connected</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Horizontal Metrics Row -->
                 <div class="row g-3">
-                    <div class="col-12">
-                        <div class="metric-card p-3">
-                            <div class="metric-kicker mb-2">Customers</div>
+                    <div class="col-4">
+                        <div class="metric-card p-3 text-center h-100 d-flex flex-column justify-content-center">
                             <div class="metric-number" th:text="${customersCount != null ? customersCount : 0}">0</div>
+                            <div class="metric-kicker mt-1">Customers</div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="metric-card p-3 h-100">
-                            <div class="metric-kicker mb-2">Services</div>
-                            <div class="metric-number" th:text="${servicesCount != null ? servicesCount : 0}">0</div>
+                    <div class="col-4">
+                        <div class="metric-card p-3 text-center h-100 d-flex flex-column justify-content-center">
+                            <div class="metric-number text-primary"
+                                th:text="${servicesCount != null ? servicesCount : 0}">0</div>
+                            <div class="metric-kicker mt-1">Services</div>
                         </div>
                     </div>
-                    <div class="col-6">
-                        <div class="metric-card p-3 h-100">
-                            <div class="metric-kicker mb-2">Trips</div>
-                            <div class="metric-number" th:text="${tripsCount != null ? tripsCount : 0}">0</div>
+                    <div class="col-4">
+                        <div class="metric-card p-3 text-center h-100 d-flex flex-column justify-content-center">
+                            <div class="metric-number text-warning" th:text="${tripsCount != null ? tripsCount : 0}">0
+                            </div>
+                            <div class="metric-kicker mt-1">Trips</div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </main>
 

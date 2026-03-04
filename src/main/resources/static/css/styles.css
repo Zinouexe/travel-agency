@@ -223,3 +223,49 @@ body {
 .tracking-wide {
   letter-spacing: 0.15em;
 }
+
+/* Image & Animation Additions */
+.hero-image {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.hero-image-wrapper:hover .hero-image {
+  transform: scale(1.02);
+}
+
+.hero-image-backdrop {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  right: -5%;
+  bottom: -5%;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(245, 158, 11, 0.1));
+  border-radius: 2rem;
+  z-index: 0;
+  filter: blur(20px);
+}
+
+.ms-minus-3 {
+  margin-left: -1.5rem;
+}
+
+.floating-badge {
+  animation: float 6s ease-in-out infinite;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.9) !important;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
