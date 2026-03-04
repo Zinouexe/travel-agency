@@ -22,4 +22,8 @@ Atlas Voyage provides an elegant, light-themed web interface for managing your t
 3. Navigate to `http://localhost:8080/`
 
 ---
+
+https://github.com/user-attachments/assets/698ce614-883c-41ad-ab0b-f125b6bc66d9
+
+
 *Crafting extraordinary journeys across the globe.*
